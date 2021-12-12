@@ -18,7 +18,7 @@ except (IOError, ImportError):
     readme = ''
 
 
-package = 'tapioca_{{ cookiecutter.service_name|lower|replace(' ', '_') }}'
+package = 'tapioca_{{ cookiecutter.service_name}}'
 requirements = [
     'tapioca-wrapper<2',
 {% if cookiecutter.use_oauth_2 == 'y' or cookiecutter.use_oauth_1 == 'y' %}
@@ -68,22 +68,22 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-    name='tapioca-{{ cookiecutter.service_name|lower|replace(' ', '-') }}',
+    name='tapioca-{{ cookiecutter.service_name}}',
     version=get_version(package),
     description='{{ cookiecutter.service_name }} API wrapper using tapioca',
     long_description=readme,
     author=get_author(package),
     author_email=get_email(package),
-    url='https://github.com/{{ cookiecutter.github_username }}/tapioca-{{ cookiecutter.service_name|lower|replace(' ', '-') }}',
+    url='https://github.com/{{ cookiecutter.github_username }}/tapioca-{{ cookiecutter.service_name}}',
     packages=[
-        'tapioca_{{ cookiecutter.service_name|lower|replace(' ', '_') }}',
+        'tapioca_{{ cookiecutter.service_name}}',
     ],
-    package_dir={'tapioca_{{ cookiecutter.service_name|lower|replace(' ', '_') }}': 'tapioca_{{ cookiecutter.service_name|lower|replace(' ', '_') }}'},
+    package_dir={'tapioca_{{ cookiecutter.service_name}}': 'tapioca_{{ cookiecutter.service_name}}'},
     include_package_data=True,
     install_requires=requirements,
     license="MIT",
     zip_safe=False,
-    keywords='{{ cookiecutter.service_name|lower|replace(' ', '-') }}',
+    keywords='{{ cookiecutter.service_name}}',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

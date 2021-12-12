@@ -13,12 +13,12 @@ from requests.auth import HTTPBasicAuth
 from .resource_mapping import RESOURCE_MAPPING
 
 
-class {{ cookiecutter.service_name|title|replace(' ', '') }}ClientAdapter(JSONAdapterMixin, TapiocaAdapter):
+class {{ cookiecutter.service_name}}ClientAdapter(JSONAdapterMixin, TapiocaAdapter):
     api_root = '{{cookiecutter.api_root_url}}'
     resource_mapping = RESOURCE_MAPPING
 
     def get_request_kwargs(self, api_params, *args, **kwargs):
-        params = super({{ cookiecutter.service_name|title|replace(' ', '') }}ClientAdapter, self).get_request_kwargs(
+        params = super({{ cookiecutter.service_name}}ClientAdapter, self).get_request_kwargs(
             api_params, *args, **kwargs)
 
         {% if cookiecutter.use_oauth_2 == 'y' %}
@@ -47,4 +47,4 @@ class {{ cookiecutter.service_name|title|replace(' ', '') }}ClientAdapter(JSONAd
         pass
 
 
-{{ cookiecutter.service_name|title|replace(' ', '') }} = generate_wrapper_from_adapter({{ cookiecutter.service_name|title|replace(' ', '') }}ClientAdapter)
+{{ cookiecutter.service_name}} = generate_wrapper_from_adapter({{ cookiecutter.service_name}}ClientAdapter)
